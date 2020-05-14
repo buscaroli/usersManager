@@ -5,7 +5,7 @@ describe('Update a user named Joe', (done) => {
     let joe
     // Create a user named Joe before each test
     beforeEach((done) => {
-        joe = new User({ name: 'Joe' }) 
+        joe = new User({ name: 'Joe', postCount: 0 }) 
         joe.save()
             .then(() => done())
     })
@@ -79,5 +79,16 @@ describe('Update a user named Joe', (done) => {
         //     done()
         // })
         assertName(User.findOneAndUpdate({ name: 'Joe' }, { name: 'Jane' }), done)
-    })    
+    })
+    
+    it('Increment by one the property postCount of a user named Joe', (done) => {
+        User.update({ name: 'Joe' }, { $inc: { postCount: 1 }})
+            .then(() => {
+                return User.findOne({ name: 'Joe' })
+            })
+            .then((user) => {
+                assert(user.postCount === 1)
+                done()
+            })
+    })
 })
