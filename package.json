@@ -1,0 +1,18 @@
+{
+  "name": "usersmanager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/users.js",  
+    "dev": "nodemon src/users.js",
+    "test": "nodemon --exec 'mocha -R min'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^7.1.2",
+    "mongoose": "^5.9.14",
+    "nodemon": "^2.0.4"
+  }
+}
