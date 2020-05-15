@@ -84,7 +84,7 @@ describe('Update a user named Joe', (done) => {
     it('Increment by one the property postCount of a user named Joe', (done) => {
         User.update({ name: 'Joe' }, { $inc: { postCount: 1 }})
             .then(() => {
-                return User.findOne({ name: 'Joe' })
+                return User.findOne({ name: 'Joe' }) 
             })
             .then((user) => {
                 assert(user.postCount === 1)

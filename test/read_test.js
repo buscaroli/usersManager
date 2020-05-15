@@ -11,7 +11,7 @@ describe('Read users stored in the Database', () => {
            .then(() => done())
     })
     
-    it('find all users with a name of joe', (done) => {
+    it('finds all users with a name of joe', (done) => {
         User.find({ name: "Joe" })
             .then((users) => {
                 assert(users[0]._id.toString() === joe._id.toString())
@@ -20,7 +20,7 @@ describe('Read users stored in the Database', () => {
             })
     })
 
-    it('find a user with a particular id', (done) => {
+    it('finds a user with a particular id', (done) => {
         User.findOne({ _id: joe._id })
             .then((user) => {
                 assert(user.name === 'Joe')

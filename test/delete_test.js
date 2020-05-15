@@ -11,7 +11,7 @@ describe('Delete a user', () => {
     })
 
 
-    it('Remove the user Joe through its instance', (done) => {
+    it('removes the user Joe through its instance', (done) => {
         joe.remove()
             .then(() => {
                 return User.findOne({ name: 'Joe' })
@@ -23,7 +23,7 @@ describe('Delete a user', () => {
         
     })
 
-    it('Remove user Joe using the model class remove', (done) => {
+    it('removes user Joe using the model class remove', (done) => {
         User.remove({ name: 'Joe' })
             .then(() => {
                 return User.findOne({ name: 'Joe'})
@@ -34,7 +34,7 @@ describe('Delete a user', () => {
             })
     })
 
-    it('Remove user Joe using the model class findOneAndRemove', (done) => {
+    it('removes user Joe using the model class findOneAndRemove', (done) => {
         User.findOneAndRemove({ name: 'Joe'})
             .then(() => {
                 return User.findOne({ name: 'Joe'})
@@ -45,7 +45,7 @@ describe('Delete a user', () => {
             })
     })
 
-    it('Remove user Joe using the model class findByIdAndRemove', (done) => {
+    it('removes user Joe using the model class findByIdAndRemove', (done) => {
         User.findByIdAndRemove(joe._id)
             .then(() => {
                 return User.findOne({ name: 'Joe' })
